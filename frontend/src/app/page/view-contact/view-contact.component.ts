@@ -48,12 +48,13 @@ export class ViewContactComponent implements OnInit {
     });
   }
 
-  Save() {}
-
   getListContacts() {
     this.contactService.getListContact().subscribe();
   }
-
+  Save() {
+    this.router.navigate(['/contact']);
+    this.openSnackBar('Registro Actualizado', 'cerrar');
+  }
   openSnackBar(message: string, action: string) {
     this._snackBar.open(message, action, {
       duration: 4000,
