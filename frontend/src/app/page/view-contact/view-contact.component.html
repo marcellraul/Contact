@@ -1,0 +1,80 @@
+<div class="container m-4" *ngIf="!contact; else main_content">
+    <div class="text-center">
+        <div class="spinner-border" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+</div>
+
+
+<ng-template #main_content>
+    <div class="container  mt-4">
+        <div class="d-flex m-4">
+            <i (click)="onClick()" class="material-icons btn-outline-primary mr-auto">arrow_back</i>
+        </div>
+    </div>
+    <div class="container">
+        <div class="d-flex justify-content-center">
+            <div class="card border-primary mb-3" style="max-width: 20rem;">
+                <div class="card-header text-center">Editar Reportes</div>
+                <form [formGroup]="myForm" (ngSubmit)="Save()">
+                    <div class="card-body">
+
+                        <div class="form-group">
+                            <label for="recipient-name" class="col-form-label">Nombre completo:</label>
+                            <input [value]="contact.name" type="text" class="form-control" placeholder="Nombre"
+                                name="name" id="name">
+                        </div>
+                        <div class="form-group">
+                            <label for="recipient-name" class="col-form-label">Nombre de la Empresa</label>
+                            <input [value]="contact.namecompany" type="text" class="form-control"
+                                placeholder="Nombre Empresa" name="namecompany" id="namecompany">
+                        </div>
+                        <div class="form-group">
+                            <label for="message-text" class="col-form-label">Correo Electronico</label>
+                            <input class="form-control" [value]="contact.email" id="email" name="email"
+                                placeholder="Correo Electronico">
+                        </div>
+
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group">
+                                    <label for="message-text" class="col-form-label">Telefono</label>
+                                    <input class="form-control" [value]="contact.phone" id="phone" name="phone"
+                                        placeholder="Telefono">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    <label for="message-text" class="col-form-label">Categoria</label>
+                                    <div class="form-group">
+                                        <select class="custom-select" [value]="contact.category" id="category"
+                                            name="category">
+                                            <option value="1">One</option>
+                                            <option value="2">Two</option>
+                                            <option value="3">Three</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message-text" class="col-form-label">Mensaje:</label>
+                            <textarea class="form-control" [value]="contact.message" id="message" name="message"
+                                placeholder="Escriba su Mensaje"></textarea>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary btn-sm">Enviar</button>
+                        </div>
+
+
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+</ng-template>

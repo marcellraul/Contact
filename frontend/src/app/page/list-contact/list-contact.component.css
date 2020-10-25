@@ -1,0 +1,11 @@
+i:hover {
+  cursor: pointer;
+  color: #154360;
+  transition: 0.7s;
+}
+
+.btnSM {
+  width: 22px;
+  height: 25px;
+  border-radius: 30%;
+}
